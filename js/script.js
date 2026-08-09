@@ -60,14 +60,36 @@ form.addEventListener('submit', (event) => {
     body: encodeFormData(data),
   })
     .then(() => {
-      formNote.textContent = 'Danke! Ihre Anfrage ist angekommen – Manni meldet sich zeitnah bei Ihnen.';
+      formNote.textContent = 'Danke! Ihre Anfrage ist angekommen. Wir melden uns zeitnah bei Ihnen.';
       formNote.classList.remove('error');
       formNote.hidden = false;
       form.reset();
     })
     .catch(() => {
-      formNote.textContent = 'Die Anfrage konnte nicht automatisch gesendet werden. Bitte kontaktieren Sie Manni direkt per Telefon oder E-Mail.';
+      formNote.textContent = 'Die Anfrage konnte nicht automatisch gesendet werden. Bitte kontaktieren Sie uns direkt per Telefon oder E-Mail.';
       formNote.classList.add('error');
       formNote.hidden = false;
     });
 });
+
+// Prevent picking a past date for the preferred appointment
+const wunschtermin = document.getElementById('wunschtermin');
+if (wunschtermin) {
+  wunschtermin.min = new Date().toISOString().split('T')[0];
+}
+
+// Hide the floating mobile call button while the contact form itself is in view
+const mobileCallButton = document.querySelector('.mobile-call-button');
+const kontaktSection = document.getElementById('kontakt');
+
+if (mobileCallButton && kontaktSection && 'IntersectionObserver' in window) {
+  const kontaktObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        mobileCallButton.classList.toggle('is-hidden', entry.isIntersecting);
+      });
+    },
+    { threshold: 0.2 }
+  );
+  kontaktObserver.observe(kontaktSection);
+}
