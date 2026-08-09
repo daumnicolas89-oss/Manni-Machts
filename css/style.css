@@ -141,7 +141,7 @@ section[id] { scroll-margin-top: 92px; }
   border-radius: 30px;
   background: #f3e2d9;
 }
-.header-call svg { width: 18px; height: 18px; color: var(--color-accent-dark); }
+.header-call svg, .header-call img { width: 18px; height: 18px; color: var(--color-accent-dark); }
 .header-call:hover { background: var(--color-accent); color: #fff; }
 .header-call:hover svg { color: #fff; }
 
@@ -234,8 +234,8 @@ section[id] { scroll-margin-top: 92px; }
 }
 .hero-card img {
   position: relative;
-  width: 82%;
-  height: 82%;
+  width: 90%;
+  height: 90%;
   object-fit: contain;
 }
 
@@ -556,7 +556,7 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); color: var(--color-text); }
   justify-content: center;
   flex-shrink: 0;
 }
-.call-highlight-icon svg { width: 22px; height: 22px; color: #fff; }
+.call-highlight-icon svg, .call-highlight-icon img { width: 22px; height: 22px; color: #fff; }
 .call-highlight strong { font-size: 1.02rem; }
 
 .contact-form {
@@ -634,7 +634,7 @@ textarea { resize: vertical; }
   box-shadow: 0 10px 24px rgba(168, 74, 46, 0.35);
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
-.mobile-call-button svg { width: 20px; height: 20px; }
+.mobile-call-button svg, .mobile-call-button img { width: 20px; height: 20px; }
 .mobile-call-button:hover { background: var(--color-accent-dark); }
 .mobile-call-button.is-hidden {
   opacity: 0;
