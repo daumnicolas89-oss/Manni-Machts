@@ -53,7 +53,7 @@ button { font-family: inherit; cursor: pointer; }
   padding: 0 24px;
 }
 
-section[id] { scroll-margin-top: 108px; }
+section[id] { scroll-margin-top: 92px; }
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -98,13 +98,13 @@ section[id] { scroll-margin-top: 108px; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 92px;
+  height: 76px;
 }
 .logo {
   display: flex;
   align-items: center;
 }
-.logo-icon { height: 80px; width: auto; }
+.logo-icon { height: 58px; width: auto; }
 
 .main-nav {
   display: flex;
@@ -232,7 +232,12 @@ section[id] { scroll-margin-top: 108px; }
   inset: 0;
   background: radial-gradient(180px 180px at 85% 85%, rgba(200, 92, 59, 0.14), transparent 70%);
 }
-.hero-card svg { position: relative; width: 55%; }
+.hero-card img {
+  position: relative;
+  width: 82%;
+  height: 82%;
+  object-fit: contain;
+}
 
 .floating-badge {
   position: absolute;
@@ -617,8 +622,8 @@ textarea { resize: vertical; }
   display: none;
   position: fixed;
   z-index: 60;
-  bottom: 18px;
-  right: 18px;
+  bottom: max(18px, calc(env(safe-area-inset-bottom) + 12px));
+  right: max(18px, env(safe-area-inset-right));
   align-items: center;
   gap: 8px;
   background: var(--color-accent);
@@ -663,7 +668,7 @@ textarea { resize: vertical; }
 
   .main-nav {
     position: absolute;
-    top: 92px;
+    top: 76px;
     left: 0;
     right: 0;
     background: var(--color-surface);

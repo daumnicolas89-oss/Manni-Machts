@@ -66,7 +66,7 @@ form.addEventListener('submit', (event) => {
       form.reset();
     })
     .catch(() => {
-      formNote.textContent = 'Die Anfrage konnte nicht automatisch gesendet werden. Bitte kontaktieren Sie uns direkt per Telefon oder E-Mail.';
+      formNote.textContent = 'Die Anfrage konnte nicht automatisch gesendet werden. Bitte kontaktieren Sie uns direkt per WhatsApp oder E-Mail.';
       formNote.classList.add('error');
       formNote.hidden = false;
     });
