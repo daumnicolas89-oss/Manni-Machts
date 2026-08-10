@@ -121,7 +121,7 @@ if (mobileCallButton && heroSection && kontaktSection && 'IntersectionObserver' 
 
 // Auto-scrolling testimonial marquee: duplicate the cards once so the
 // looping animation can run seamlessly, and let people pause it by
-// clicking/tapping (mouse hover also pauses it, handled purely in CSS)
+// pressing and holding (mouse hover also pauses it, handled purely in CSS)
 const testimonialTrack = document.getElementById('testimonial-track');
 if (testimonialTrack) {
   const originalCards = Array.from(testimonialTrack.children);
@@ -150,7 +150,13 @@ if (testimonialTrack) {
   setMarqueeDistance();
   window.addEventListener('resize', setMarqueeDistance);
 
-  testimonialTrack.addEventListener('click', () => {
-    testimonialTrack.classList.toggle('is-paused');
-  });
+  // Pause on press (finger or mouse down) and resume as soon as it's
+  // released, so people can hold a card to read it and let go to continue
+  const pauseMarquee = () => testimonialTrack.classList.add('is-paused');
+  const resumeMarquee = () => testimonialTrack.classList.remove('is-paused');
+
+  testimonialTrack.addEventListener('pointerdown', pauseMarquee);
+  testimonialTrack.addEventListener('pointerup', resumeMarquee);
+  testimonialTrack.addEventListener('pointercancel', resumeMarquee);
+  testimonialTrack.addEventListener('pointerleave', resumeMarquee);
 }
