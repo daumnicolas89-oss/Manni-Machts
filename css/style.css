@@ -42,7 +42,7 @@ body {
 }
 h1, h2, h3 { font-family: var(--font-heading); line-height: 1.2; margin: 0 0 0.5em; }
 p { margin: 0 0 1em; }
-a { color: inherit; text-decoration: none; }
+a { color: inherit; text-decoration: none; touch-action: manipulation; }
 img { max-width: 100%; display: block; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
 button { font-family: inherit; cursor: pointer; }
@@ -82,6 +82,7 @@ main:focus { outline: none; }
   font-weight: 600;
   font-size: 0.98rem;
   border: 2px solid transparent;
+  touch-action: manipulation;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 .btn-primary {
