@@ -485,6 +485,10 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); color: var(--color-text); }
   gap: 24px;
   width: max-content;
   cursor: pointer;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
   animation-name: testimonial-scroll;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
