@@ -131,6 +131,25 @@ if (testimonialTrack) {
     testimonialTrack.appendChild(clone);
   });
 
+  // Measure the exact pixel distance to the first duplicated card so the
+  // loop lines up perfectly (a plain -50% can be off if the track's width
+  // isn't computed the same way on every browser), and scale the duration
+  // to that distance so the scroll speed looks the same on every screen size.
+  const firstClone = testimonialTrack.children[originalCards.length];
+  const setMarqueeDistance = () => {
+    if (!firstClone) return;
+    const trackLeft = testimonialTrack.getBoundingClientRect().left;
+    const cloneLeft = firstClone.getBoundingClientRect().left;
+    const distance = cloneLeft - trackLeft;
+    if (distance > 0) {
+      const pixelsPerSecond = 40;
+      testimonialTrack.style.setProperty('--marquee-distance', `${distance}px`);
+      testimonialTrack.style.animationDuration = `${distance / pixelsPerSecond}s`;
+    }
+  };
+  setMarqueeDistance();
+  window.addEventListener('resize', setMarqueeDistance);
+
   testimonialTrack.addEventListener('click', () => {
     testimonialTrack.classList.toggle('is-paused');
   });

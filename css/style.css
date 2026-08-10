@@ -484,14 +484,17 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); color: var(--color-text); }
   align-items: stretch;
   gap: 24px;
   width: max-content;
-  animation: testimonial-scroll 60s linear infinite;
+  cursor: pointer;
+  animation-name: testimonial-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 60s;
 }
 .testimonial-track.is-paused,
 .testimonial-track:hover { animation-play-state: paused; }
-.testimonial-track { cursor: pointer; }
 @keyframes testimonial-scroll {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to { transform: translateX(calc(-1 * var(--marquee-distance, 50%))); }
 }
 .testimonial-card {
   flex: 0 0 min(85vw, 360px);
