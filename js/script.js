@@ -87,16 +87,32 @@ if (wunschtermin) {
   wunschtermin.min = new Date().toISOString().split('T')[0];
 }
 
-// Hide the floating mobile call button while the contact form itself is in view
+// Hide the floating mobile WhatsApp button whenever the hero or the contact
+// section is in view, since both already show their own WhatsApp button
 const mobileCallButton = document.querySelector('.mobile-call-button');
+const heroSection = document.querySelector('.hero');
 const kontaktSection = document.getElementById('kontakt');
 
-if (mobileCallButton && kontaktSection && 'IntersectionObserver' in window) {
+if (mobileCallButton && heroSection && kontaktSection && 'IntersectionObserver' in window) {
+  const visibility = { hero: false, kontakt: false };
+
+  const updateMobileCallButton = () => {
+    mobileCallButton.classList.toggle('is-hidden', visibility.hero || visibility.kontakt);
+  };
+
+  const heroObserver = new IntersectionObserver(
+    (entries) => {
+      visibility.hero = entries[0].isIntersecting;
+      updateMobileCallButton();
+    },
+    { threshold: 0.2 }
+  );
+  heroObserver.observe(heroSection);
+
   const kontaktObserver = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
-        mobileCallButton.classList.toggle('is-hidden', entry.isIntersecting);
-      });
+      visibility.kontakt = entries[0].isIntersecting;
+      updateMobileCallButton();
     },
     { threshold: 0.2 }
   );
