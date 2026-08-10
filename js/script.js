@@ -2,7 +2,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 // Scroll-reveal animation for cards and section headers
 const revealTargets = document.querySelectorAll(
-  '.section-head, .service-card, .reason-card, .testimonial-card, .step, .gallery-item, .faq-item'
+  '.section-head, .service-card, .reason-card, .step, .gallery-item, .faq-item'
 );
 
 if ('IntersectionObserver' in window) {
@@ -117,4 +117,21 @@ if (mobileCallButton && heroSection && kontaktSection && 'IntersectionObserver' 
     { threshold: 0.2 }
   );
   kontaktObserver.observe(kontaktSection);
+}
+
+// Auto-scrolling testimonial marquee: duplicate the cards once so the
+// looping animation can run seamlessly, and let people pause it by
+// clicking/tapping (mouse hover also pauses it, handled purely in CSS)
+const testimonialTrack = document.getElementById('testimonial-track');
+if (testimonialTrack) {
+  const originalCards = Array.from(testimonialTrack.children);
+  originalCards.forEach((card) => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    testimonialTrack.appendChild(clone);
+  });
+
+  testimonialTrack.addEventListener('click', () => {
+    testimonialTrack.classList.toggle('is-paused');
+  });
 }
