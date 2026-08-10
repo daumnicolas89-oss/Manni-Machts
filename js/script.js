@@ -52,6 +52,11 @@ function encodeFormData(data) {
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const submitBtnDefaultText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Wird gesendet…';
+
   const data = Object.fromEntries(new FormData(form).entries());
 
   fetch('/', {
@@ -69,6 +74,10 @@ form.addEventListener('submit', (event) => {
       formNote.textContent = 'Die Anfrage konnte nicht automatisch gesendet werden. Bitte kontaktieren Sie uns direkt per WhatsApp oder E-Mail.';
       formNote.classList.add('error');
       formNote.hidden = false;
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = submitBtnDefaultText;
     });
 });
 
