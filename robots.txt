@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://manni-machts.vercel.app/sitemap.xml
