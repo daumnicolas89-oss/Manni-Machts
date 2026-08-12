@@ -25,8 +25,8 @@ if (rotator) {
   const wordEl = rotator.querySelector('.rotator-word');
 
   if (prefersReducedMotion) {
-    // Ohne Bewegung: sinnvoller statischer Text statt Einzelwort
-    if (wordEl) wordEl.textContent = 'klemmt, hakt oder wackelt';
+    // Ohne Bewegung: einzelnes Wort stehen lassen (bleibt auf eigener
+    // Zeile ruhig), kein Wechsel.
   } else if (wordEl) {
     let i = 0;
     setInterval(() => {
