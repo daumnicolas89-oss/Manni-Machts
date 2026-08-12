@@ -3,19 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Manni Macht's: Ihr Handwerker für alle Fälle</title>
-<meta name="description" content="Manni Macht's: Möbelaufbau, Reparaturen, Streichen und mehr. Zuverlässig, freundlich, termintreu. Jetzt Termin anfragen.">
-<meta name="theme-color" content="#3d2b1f">
+<title>Manni Macht's: Ihr Handwerker für alle Fälle in Hamburg &amp; Rosengarten</title>
+<meta name="description" content="Manni Macht's: Möbelaufbau, Reparaturen, Streichen und alles rund ums Haus. Persönlich, zuverlässig und termintreu im Raum Hamburg und Rosengarten. Jetzt Termin anfragen.">
+<meta name="theme-color" content="#f7f2e9">
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="apple-touch-icon" href="images/logo.webp">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://manni-machts.vercel.app/">
 <meta property="og:title" content="Manni Macht's: Ihr Handwerker für alle Fälle">
-<meta property="og:description" content="Möbelaufbau, Reparaturen, Streichen und mehr. Zuverlässig, freundlich, termintreu. Jetzt Termin anfragen.">
+<meta property="og:description" content="Möbelaufbau, Reparaturen, Streichen und mehr. Persönlich, zuverlässig, termintreu im Raum Hamburg und Rosengarten.">
 <meta property="og:image" content="https://manni-machts.vercel.app/images/logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Manni Macht's",
+  "description": "Handwerksarbeiten rund ums Haus: Möbelaufbau, Reparaturen, Streichen, Bohren und Montieren im Raum Hamburg und Rosengarten.",
+  "url": "https://manni-machts.vercel.app/",
+  "image": "https://manni-machts.vercel.app/images/logo.webp",
+  "telephone": "+4915226205588",
+  "email": "kontakt@manni-machts.de",
+  "areaServed": [
+    { "@type": "City", "name": "Hamburg" },
+    { "@type": "AdministrativeArea", "name": "Rosengarten" }
+  ],
+  "knowsAbout": ["Möbelaufbau", "Reparaturen", "Malerarbeiten", "Bohren und Montieren", "Renovierungen"]
+}
+</script>
 </head>
 <body>
 
@@ -23,7 +41,7 @@
 
 <header class="site-header" id="top">
   <div class="container header-inner">
-    <a href="#top" class="logo">
+    <a href="#top" class="logo" aria-label="Manni Macht's — zur Startseite">
       <img src="images/logo-illustrated.webp" alt="Manni Macht's: Handwerker in Hamburg und Rosengarten" class="logo-icon">
     </a>
 
@@ -36,7 +54,7 @@
     </nav>
 
     <div class="header-actions">
-      <a href="https://wa.me/4915226205588?text=Hallo%20Manni%2C%20ich%20habe%20eine%20Frage%20zu%20einem%20Auftrag." class="header-call" target="_blank" rel="noopener">
+      <a href="https://wa.me/4915226205588?text=Hallo%20Manni%2C%20ich%20habe%20eine%20Frage%20zu%20einem%20Auftrag." class="header-wa" target="_blank" rel="noopener">
         <img src="images/WhatsApp.webp" alt="" aria-hidden="true">
         <span>WhatsApp</span>
       </a>
@@ -52,9 +70,9 @@
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-text">
-        <p class="eyebrow">Handwerksarbeiten im Raum Hamburg und Rosengarten</p>
-        <h1>Wenn's zuhause klemmt, hakt oder wackelt: Manni macht's.</h1>
-        <p class="hero-sub">Möbelaufbau, Reparaturen, Malerarbeiten und alles rund ums Haus. Zuverlässig, sauber und zum fairen Preis. Eine Nachricht, ein Formular, ein Termin.</p>
+        <p class="eyebrow">Handwerk im Raum Hamburg &amp; Rosengarten</p>
+        <h1>Wenn's zuhause <span class="rotator" id="rotator"><span class="rotator-word">klemmt</span></span>:<br><span class="brand-line">Manni macht's.</span></h1>
+        <p class="hero-sub">Möbelaufbau, Reparaturen, Malerarbeiten und alles rund ums Haus. Persönlich, sauber und zum fairen Preis. Eine Nachricht, ein Formular, ein Termin.</p>
         <div class="hero-actions">
           <a href="#kontakt" class="btn btn-primary btn-lg">Termin anfragen</a>
           <a href="https://wa.me/4915226205588?text=Hallo%20Manni%2C%20ich%20habe%20eine%20Frage%20zu%20einem%20Auftrag." class="btn btn-ghost btn-lg" target="_blank" rel="noopener">
@@ -62,19 +80,26 @@
             Per WhatsApp schreiben
           </a>
         </div>
+        <p class="hero-proof">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7-4.35-9.5-8.5C.7 8 2 4.5 5.5 4A5 5 0 0 1 12 7a5 5 0 0 1 6.5-3c3.5.5 4.8 4 3 7.5C19 15.65 12 20 12 20z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></svg>
+          <span><strong>Empfohlen in der Region</strong> — persönlich, termintreu, unkompliziert.</span>
+        </p>
       </div>
       <div class="hero-visual">
         <div class="hero-card">
           <img src="images/logo.webp" alt="Manni, Handwerker von Manni Macht's, mit Akkuschrauber">
         </div>
-        <div class="floating-badge badge-rating">
-          <span class="stars" aria-hidden="true">★★★★★</span>
-          <strong>4.9 / 5</strong>
-          <span>aus 38 Bewertungen</span>
+        <div class="hero-chip chip-region">
+          <span class="chip-ic">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-6-5.4-6-10a6 6 0 1 1 12 0c0 4.6-6 10-6 10z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/><circle cx="12" cy="11" r="2.2" stroke="currentColor" stroke-width="1.75"/></svg>
+          </span>
+          <span>Hamburg &amp;<br>Rosengarten</span>
         </div>
-        <div class="floating-badge badge-quick">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>Kurzfristige Termine möglich</span>
+        <div class="hero-chip chip-quick">
+          <span class="chip-ic">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span>Kurzfristige<br>Termine möglich</span>
         </div>
       </div>
     </div>
@@ -92,7 +117,7 @@
       </div>
       <div class="trust-item">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11.5 3H5a2 2 0 0 0-2 2v6.5a2 2 0 0 0 .59 1.41l8.5 8.5a2 2 0 0 0 2.82 0l6.5-6.5a2 2 0 0 0 0-2.82l-8.5-8.5A2 2 0 0 0 11.5 3z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/><circle cx="8" cy="8" r="1.2" fill="currentColor" stroke="none"/></svg>
-        <span>Festpreis vorab, keine Überraschungen</span>
+        <span>Festpreis vorab</span>
       </div>
       <div class="trust-item">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7-4.35-9.5-8.5C.7 8 2 4.5 5.5 4A5 5 0 0 1 12 7a5 5 0 0 1 6.5-3c3.5.5 4.8 4 3 7.5C19 15.65 12 20 12 20z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></svg>
@@ -151,9 +176,9 @@
           <p>Manchmal sind es gerade die kleinen Dinge, die ewig liegen bleiben. Eine lockere Armatur, eine klemmende Tür oder etwas, das befestigt, eingestellt oder ausgebessert werden muss. Einfach anfragen.</p>
         </article>
 
-        <article class="service-card">
+        <article class="service-card is-cta">
           <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="6" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="18" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H7l-3 3V5z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/><path d="M9 10h6M9 13h3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
           </div>
           <h3>Nicht dabei?</h3>
           <p>Meine Liste ist längst nicht vollständig. Schicken Sie mir einfach kurz eine Nachricht oder ein Foto. Ich sage Ihnen direkt, ob ich helfen kann. Und wenn nicht, sage ich das genauso offen.</p>
@@ -165,25 +190,33 @@
 
   <section id="ueber-mich" class="section section-alt">
     <div class="container about-inner">
-      <div class="about-visual" aria-hidden="true">
+      <div class="about-visual">
         <div class="about-photo-placeholder">
           <span class="placeholder-tag">Platzhalter</span>
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.75"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
-          <span>Hier kommt später ein echtes Foto hin</span>
+          <span>Hier kommt später ein echtes Foto von Manni hin</span>
         </div>
       </div>
       <div class="about-text">
         <p class="eyebrow">Über mich</p>
         <h2>Hallo, ich bin Manni.</h2>
-        <p>Handwerk ist für mich mehr als nur Arbeit.</p>
+        <p class="about-lead">Handwerk ist für mich mehr als nur Arbeit.</p>
         <p>Ich baue, repariere und tüftle eigentlich schon, solange ich denken kann. In meiner Werkstatt im Keller entsteht ständig irgendetwas Neues. Mal ein Vogelhäuschen, mal ein Möbelstück und manchmal eine Lösung für etwas, das eigentlich gar nicht so vorgesehen war.</p>
         <p>Auch mein eigenes Haus habe ich über die Jahre selbst saniert und dabei gelernt: Nicht immer passt alles auf Anhieb. Entscheidend ist, eine gute Lösung zu finden.</p>
         <p>Genau das mache ich heute auch für andere. Von der Lampe an der Wand über den neuen Schrank bis zu Reparaturen und kleineren Renovierungen. Praktisch, zuverlässig und ohne unnötiges Drumherum.</p>
-        <p><strong>Ich unterstütze Sie bei:</strong></p>
         <ul class="about-facts">
-          <li><strong>Montagen &amp; kleinen Arbeiten</strong></li>
-          <li><strong>Möbelaufbau &amp; Reparaturen</strong></li>
-          <li><strong>Renovierungen &amp; individuellen Lösungen</strong></li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/><path d="M8.5 12.5l2.2 2.2 4.8-4.8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Montagen &amp; kleine Arbeiten</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/><path d="M8.5 12.5l2.2 2.2 4.8-4.8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Möbelaufbau &amp; Reparaturen</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/><path d="M8.5 12.5l2.2 2.2 4.8-4.8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Renovierungen &amp; individuelle Lösungen</span>
+          </li>
         </ul>
       </div>
     </div>
@@ -198,32 +231,24 @@
       </div>
       <div class="reason-grid">
         <article class="reason-card">
-          <div class="reason-icon">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/><path d="M8.5 12.5l2.2 2.2 4.8-4.8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
+          <span class="reason-num">01</span>
           <h3>Klare Absprachen</h3>
           <p>Bevor ich loslege, besprechen wir, was gemacht werden soll und welche Kosten entstehen. So wissen Sie vorher, womit Sie rechnen können.</p>
         </article>
         <article class="reason-card">
-          <div class="reason-icon">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
+          <span class="reason-num">02</span>
           <h3>Verlässliche Termine</h3>
           <p>Was vereinbart ist, gilt. Sollte wirklich einmal etwas dazwischenkommen, melde ich mich rechtzeitig.</p>
         </article>
         <article class="reason-card">
-          <div class="reason-icon">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.75"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
-          </div>
+          <span class="reason-num">03</span>
           <h3>Immer persönlich</h3>
           <p>Vom ersten Kontakt bis zur fertigen Arbeit haben Sie es mit mir zu tun. Keine wechselnden Mitarbeiter und keine Weitergabe an Subunternehmer.</p>
         </article>
         <article class="reason-card">
-          <div class="reason-icon">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/><path d="M9.5 9.2a2.5 2.5 0 0 1 4.8 1c0 1.8-2.3 2.3-2.3 3.6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="17" r="0.9" fill="currentColor" stroke="none"/></svg>
-          </div>
-          <h3>Einfach zeigen, was gemacht werden soll</h3>
-          <p>Sie müssen nicht genau wissen, wie eine Reparatur heißt oder was dafür nötig ist. Zeigen oder beschreiben Sie mir einfach das Problem. Den Rest klären wir gemeinsam.</p>
+          <span class="reason-num">04</span>
+          <h3>Einfach zeigen, was zu tun ist</h3>
+          <p>Sie müssen nicht wissen, wie eine Reparatur heißt oder was dafür nötig ist. Zeigen oder beschreiben Sie mir einfach das Problem. Den Rest klären wir gemeinsam.</p>
         </article>
       </div>
     </div>
@@ -237,78 +262,78 @@
         <p class="section-sub">Ein paar Beispiele aus vergangenen Einsätzen, weitere Fotos kommen laufend dazu.</p>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-item has-photo">
+        <figure class="gallery-item">
           <img src="images/moebelaufbau.webp" alt="Aufgebaute Kommode aus Holz in einem Wohnzimmer, ausgeführt von Manni" loading="lazy" decoding="async">
-          <span class="gallery-caption">Möbelaufbau</span>
-        </div>
-        <div class="gallery-item has-photo">
+          <figcaption class="gallery-caption">Möbelaufbau</figcaption>
+        </figure>
+        <figure class="gallery-item">
           <img src="images/malerarbeit.webp" alt="Frisch gestrichenes Zimmer mit Malerwerkzeug, ausgeführt von Manni" loading="lazy" decoding="async">
-          <span class="gallery-caption">Malerarbeiten</span>
-        </div>
-        <div class="gallery-item has-photo">
+          <figcaption class="gallery-caption">Malerarbeiten</figcaption>
+        </figure>
+        <figure class="gallery-item">
           <img src="images/reparatur.webp" alt="Reparierter Türgriff mit Schließzylinder, Werkzeugkoffer im Hintergrund, ausgeführt von Manni" loading="lazy" decoding="async">
-          <span class="gallery-caption">Reparatur</span>
-        </div>
-        <div class="gallery-item has-photo">
+          <figcaption class="gallery-caption">Reparatur</figcaption>
+        </figure>
+        <figure class="gallery-item">
           <img src="images/sanitaer.webp" alt="Geöffneter Waschbeckenunterschrank mit sichtbaren Wasseranschlüssen, ausgeführt von Manni" loading="lazy" decoding="async">
-          <span class="gallery-caption">Sanitär</span>
-        </div>
+          <figcaption class="gallery-caption">Sanitär</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
   <section id="stimmen" class="section">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head center">
         <p class="eyebrow">Kundenstimmen</p>
         <h2>Das sagen Kundinnen und Kunden</h2>
         <p class="section-sub">Ein paar Rückmeldungen aus der Region.</p>
       </div>
-      <div class="testimonial-marquee">
-        <div class="testimonial-track" id="testimonial-track">
+    </div>
+    <div class="testimonial-marquee">
+      <div class="testimonial-track" id="testimonial-track">
         <figure class="testimonial-card">
           <div class="stars" aria-hidden="true">★★★★★</div>
           <blockquote>„Manni hat bei uns einen großen Kleiderschrank aufgebaut und noch zwei Regale angebracht. Alles sauber und ordentlich gemacht. Besonders gut fand ich, dass er auch direkt eine Lösung hatte, als der Schrank an einer Stelle nicht ganz gepasst hat. Würde ihn jederzeit wieder fragen.“</blockquote>
-          <figcaption>Julia K., Hamburg</figcaption>
+          <figcaption><span class="avatar" aria-hidden="true">JK</span><span><span class="who">Julia K.</span><br><span class="where">Hamburg</span></span></figcaption>
         </figure>
         <figure class="testimonial-card">
           <div class="stars" aria-hidden="true">★★★★★</div>
           <blockquote>„Ich hatte einige kleinere Sachen, die sich über die Zeit angesammelt hatten. Eine Lampe aufhängen, eine klemmende Tür und zwei Bilder befestigen. Für mich allein inzwischen schwierig. Manni hat alles in Ruhe erledigt und war sehr freundlich. Genau so hatte ich mir das vorgestellt.“</blockquote>
-          <figcaption>Werner H., Bendestorf</figcaption>
+          <figcaption><span class="avatar" aria-hidden="true">WH</span><span><span class="who">Werner H.</span><br><span class="where">Bendestorf</span></span></figcaption>
         </figure>
         <figure class="testimonial-card">
           <div class="stars" aria-hidden="true">★★★★★</div>
           <blockquote>„Bei unserer Küche gab es beim Aufbau ein paar Probleme, weil die Maße nicht ganz gestimmt haben. Manni hat nicht lange herumgeredet, sondern sich etwas einfallen lassen. Am Ende sieht man überhaupt nicht, dass ursprünglich etwas nicht gepasst hat. Sehr unkompliziert und zuverlässig.“</blockquote>
-          <figcaption>Sandra P., Eckel</figcaption>
+          <figcaption><span class="avatar" aria-hidden="true">SP</span><span><span class="who">Sandra P.</span><br><span class="where">Eckel</span></span></figcaption>
         </figure>
         <figure class="testimonial-card">
           <div class="stars" aria-hidden="true">★★★★★</div>
           <blockquote>„Bei uns hatten sich über Monate ein paar Kleinigkeiten angesammelt. Zwei Lampen, ein Regal und eine Tür, die nicht mehr richtig zuging. Manni war einen Nachmittag da und danach war endlich alles erledigt. Sehr angenehm und unkompliziert.“</blockquote>
-          <figcaption>Sabine M., Klecken</figcaption>
+          <figcaption><span class="avatar" aria-hidden="true">SM</span><span><span class="who">Sabine M.</span><br><span class="where">Klecken</span></span></figcaption>
         </figure>
         <figure class="testimonial-card">
           <div class="stars" aria-hidden="true">★★★★★</div>
           <blockquote>„Unser neuer Kleiderschrank hat uns beim Aufbau irgendwann den letzten Nerv geraubt. Manni hat übernommen und auch das Problem mit der schiefen Wand gelöst. Jetzt steht alles so, wie es soll. Klare Empfehlung!“</blockquote>
-          <figcaption>Daniel R., Nenndorf</figcaption>
+          <figcaption><span class="avatar" aria-hidden="true">DR</span><span><span class="who">Daniel R.</span><br><span class="where">Nenndorf</span></span></figcaption>
         </figure>
         <figure class="testimonial-card">
           <div class="stars" aria-hidden="true">★★★★★</div>
           <blockquote>„Manni hat bei uns das Wohnzimmer gestrichen und anschließend noch ein paar Sachen angebracht. Sauber gearbeitet, pünktlich und vor allem kein großes Drumherum. Wir würden ihn wieder anrufen.“</blockquote>
-          <figcaption>Katharina B., Tötensen</figcaption>
+          <figcaption><span class="avatar" aria-hidden="true">KB</span><span><span class="who">Katharina B.</span><br><span class="where">Tötensen</span></span></figcaption>
         </figure>
         <figure class="testimonial-card">
           <div class="stars" aria-hidden="true">★★★★★</div>
           <blockquote>„Eigentlich wollte ich nur eine Garderobe angebracht haben. Am Ende hat Manni auch noch eine klemmende Schranktür und zwei lose Griffe repariert. Fand ich super, dass auch solche Kleinigkeiten kein Problem waren.“</blockquote>
-          <figcaption>Gisela W., Vahrendorf</figcaption>
+          <figcaption><span class="avatar" aria-hidden="true">GW</span><span><span class="who">Gisela W.</span><br><span class="where">Vahrendorf</span></span></figcaption>
         </figure>
-        </div>
       </div>
     </div>
   </section>
 
-  <section id="ablauf" class="section section-alt">
+  <section id="ablauf" class="section section-dark">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head center">
         <p class="eyebrow">So läuft's</p>
         <h2>In drei Schritten zum Termin</h2>
       </div>
@@ -316,17 +341,17 @@
         <li class="step">
           <span class="step-num">1</span>
           <h3>Anfrage senden</h3>
-          <p>Formular ausfüllen und kurz beschreiben, worum es geht.</p>
+          <p>Formular ausfüllen und kurz beschreiben, worum es geht. Ein Foto hilft, ist aber kein Muss.</p>
         </li>
         <li class="step">
           <span class="step-num">2</span>
           <h3>Rückmeldung</h3>
-          <p>Wir melden uns zeitnah per WhatsApp oder E-Mail zurück.</p>
+          <p>Wir melden uns zeitnah per WhatsApp oder E-Mail mit einer ehrlichen Einschätzung zurück.</p>
         </li>
         <li class="step">
           <span class="step-num">3</span>
           <h3>Termin vor Ort</h3>
-          <p>Gemeinsamer Termin wird vereinbart und die Arbeit erledigt.</p>
+          <p>Wir vereinbaren einen passenden Termin und die Arbeit wird erledigt.</p>
         </li>
       </ol>
     </div>
@@ -334,7 +359,7 @@
 
   <section id="faq" class="section">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head center">
         <p class="eyebrow">Häufige Fragen</p>
         <h2>Vielleicht steht Ihre Frage schon hier</h2>
       </div>
@@ -370,19 +395,29 @@
         <h2>Für eine genaue Einschätzung</h2>
         <p class="section-sub">Je genauer Sie hier beschreiben, worum es geht, desto besser können wir vorab einschätzen, was zu tun ist und was es kostet. Wir melden uns so schnell wie möglich zurück.</p>
 
-        <a href="https://wa.me/4915226205588?text=Hallo%20Manni%2C%20ich%20habe%20eine%20Frage%20zu%20einem%20Auftrag." class="call-highlight" target="_blank" rel="noopener">
-          <span class="call-highlight-icon">
+        <a href="https://wa.me/4915226205588?text=Hallo%20Manni%2C%20ich%20habe%20eine%20Frage%20zu%20einem%20Auftrag." class="contact-cta-wa" target="_blank" rel="noopener">
+          <span class="wa-ic">
             <img src="images/WhatsApp.webp" alt="" aria-hidden="true">
           </span>
           <span>
             <strong>Nur eine kurze Frage?</strong>
+            <span class="sub">Schreiben Sie direkt per WhatsApp.</span>
           </span>
         </a>
 
         <ul class="contact-details">
-          <li><strong>E-Mail:</strong> <a href="mailto:kontakt@manni-machts.de">kontakt@manni-machts.de</a></li>
-          <li><strong>Telefon:</strong> <a href="tel:+4915226205588">01522 620 55 88</a></li>
-          <li><strong>Einsatzgebiet:</strong> Hamburg, Rosengarten und Umgebung</li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M4 7l8 5 8-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><a href="mailto:kontakt@manni-machts.de">kontakt@manni-machts.de</a></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 15l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></svg>
+            <span><a href="tel:+4915226205588">01522 620 55 88</a></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-6-5.4-6-10a6 6 0 1 1 12 0c0 4.6-6 10-6 10z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/><circle cx="12" cy="11" r="2.2" stroke="currentColor" stroke-width="1.75"/></svg>
+            <span>Hamburg, Rosengarten und Umgebung</span>
+          </li>
         </ul>
       </div>
 
@@ -439,7 +474,7 @@
           <textarea id="nachricht" name="nachricht" rows="4" required></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-full">Anfrage senden</button>
+        <button type="submit" class="btn btn-primary btn-full btn-lg">Anfrage senden</button>
         <output class="form-note" id="form-note" hidden></output>
       </form>
     </div>
@@ -448,19 +483,46 @@
 </main>
 
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <p>&copy; <span id="year"></span> Manni Macht's. Alle Rechte vorbehalten.</p>
-    <nav class="footer-links" aria-label="Rechtliches">
-      <a href="#">Impressum</a>
-      <a href="#">Datenschutz</a>
-    </nav>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="images/logo-illustrated.webp" alt="Manni Macht's">
+        <p>Ihr Handwerker für alle Fälle rund ums Haus im Raum Hamburg und Rosengarten. Persönlich, zuverlässig und termintreu.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Seite</h4>
+          <a href="#leistungen">Leistungen</a>
+          <a href="#ueber-mich">Über mich</a>
+          <a href="#stimmen">Kundenstimmen</a>
+          <a href="#faq">Fragen</a>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <a href="#kontakt">Termin anfragen</a>
+          <a href="https://wa.me/4915226205588" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="tel:+4915226205588">01522 620 55 88</a>
+          <a href="mailto:kontakt@manni-machts.de">E-Mail</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Manni Macht's. Alle Rechte vorbehalten.</p>
+      <nav aria-label="Rechtliches">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </nav>
+    </div>
   </div>
 </footer>
 
-<a href="https://wa.me/4915226205588?text=Hallo%20Manni%2C%20ich%20habe%20eine%20Frage%20zu%20einem%20Auftrag." class="mobile-call-button" aria-label="Manni per WhatsApp schreiben" target="_blank" rel="noopener">
-  <img src="images/WhatsApp.webp" alt="" aria-hidden="true">
-  <span>WhatsApp</span>
-</a>
+<div class="mobile-bar" id="mobile-bar">
+  <a href="#kontakt" class="btn btn-primary">Termin anfragen</a>
+  <a href="https://wa.me/4915226205588?text=Hallo%20Manni%2C%20ich%20habe%20eine%20Frage%20zu%20einem%20Auftrag." class="btn btn-wa" target="_blank" rel="noopener" aria-label="Manni per WhatsApp schreiben">
+    <img src="images/WhatsApp.webp" alt="" aria-hidden="true">
+    WhatsApp
+  </a>
+</div>
 
 <script src="js/script.js"></script>
 </body>

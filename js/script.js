@@ -1,45 +1,101 @@
-document.getElementById('year').textContent = new Date().getFullYear();
+/* ============================================================
+   Manni Macht's — Interaktion
+   Jahr · Header-Stuck · Rotator-Signature · Scroll-Reveal
+   · Mobile-Nav · Formular · Mobile-Bar · Testimonial-Band
+   ============================================================ */
 
-// Scroll-reveal animation for cards and section headers
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// --- Jahr im Footer ---
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// --- Header: Schatten/Rahmen sobald gescrollt wird ---
+const header = document.querySelector('.site-header');
+if (header) {
+  const onScroll = () => header.classList.toggle('is-stuck', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+
+// --- Signature: rotierendes Problem-Wort in der Hero-Headline ---
+const rotator = document.getElementById('rotator');
+if (rotator) {
+  const words = ['klemmt', 'hakt', 'wackelt', 'tropft', 'quietscht'];
+  const wordEl = rotator.querySelector('.rotator-word');
+
+  if (prefersReducedMotion) {
+    // Ohne Bewegung: sinnvoller statischer Text statt Einzelwort
+    if (wordEl) wordEl.textContent = 'klemmt, hakt oder wackelt';
+  } else if (wordEl) {
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % words.length;
+      rotator.classList.remove('is-animating');
+      // Reflow erzwingen, damit die Animation neu startet
+      void rotator.offsetWidth;
+      wordEl.textContent = words[i];
+      rotator.classList.add('is-animating');
+    }, 2100);
+  }
+}
+
+// --- Scroll-Reveal für Karten und Sektionsköpfe ---
 const revealTargets = document.querySelectorAll(
-  '.section-head, .service-card, .reason-card, .step, .gallery-item, .faq-item'
+  '.section-head, .service-card, .reason-card, .step, .gallery-item, .faq-item, .contact-form'
 );
 
-if ('IntersectionObserver' in window) {
+if ('IntersectionObserver' in window && !prefersReducedMotion) {
   revealTargets.forEach((el) => el.classList.add('reveal'));
 
-  const observer = new IntersectionObserver(
+  const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        // Einblenden, sobald das Element sichtbar wird ODER bereits nach oben
+        // aus dem Viewport gescrollt wurde (verhindert unsichtbare Elemente
+        // bei Deep-Links oder wiederhergestellter Scroll-Position).
+        if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+    { threshold: 0.14, rootMargin: '0px 0px -40px 0px' }
   );
 
-  revealTargets.forEach((el) => observer.observe(el));
+  revealTargets.forEach((el) => revealObserver.observe(el));
 }
 
-// Mobile navigation toggle
+// --- Mobile-Navigation ---
 const navToggle = document.getElementById('nav-toggle');
 const mainNav = document.getElementById('main-nav');
 
-navToggle.addEventListener('click', () => {
-  const isOpen = mainNav.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded', String(isOpen));
-});
-
-mainNav.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    mainNav.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
+if (navToggle && mainNav) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = mainNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+    navToggle.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
   });
-});
 
-// Contact form submission (Netlify Forms compatible, with graceful fallback)
+  mainNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mainNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Menü öffnen');
+    });
+  });
+
+  // Menü mit Escape schließen
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mainNav.classList.contains('open')) {
+      mainNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.focus();
+    }
+  });
+}
+
+// --- Kontaktformular (Netlify-kompatibel, mit Fallback) ---
 const form = document.getElementById('contact-form');
 const formNote = document.getElementById('form-note');
 
@@ -49,81 +105,71 @@ function encodeFormData(data) {
     .join('&');
 }
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
+if (form && formNote) {
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-  const submitBtn = form.querySelector('button[type="submit"]');
-  const submitBtnDefaultText = submitBtn.textContent;
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Wird gesendet…';
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitBtnDefaultText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Wird gesendet…';
 
-  const data = Object.fromEntries(new FormData(form).entries());
+    const data = Object.fromEntries(new FormData(form).entries());
 
-  fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: encodeFormData(data),
-  })
-    .then(() => {
-      formNote.textContent = 'Danke! Ihre Anfrage ist angekommen. Wir melden uns zeitnah bei Ihnen.';
-      formNote.classList.remove('error');
-      formNote.hidden = false;
-      form.reset();
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encodeFormData(data),
     })
-    .catch(() => {
-      formNote.textContent = 'Die Anfrage konnte nicht automatisch gesendet werden. Bitte kontaktieren Sie uns direkt per WhatsApp oder E-Mail.';
-      formNote.classList.add('error');
-      formNote.hidden = false;
-    })
-    .finally(() => {
-      submitBtn.disabled = false;
-      submitBtn.textContent = submitBtnDefaultText;
-    });
-});
+      .then(() => {
+        formNote.textContent = 'Danke! Ihre Anfrage ist angekommen. Wir melden uns zeitnah bei Ihnen.';
+        formNote.classList.remove('error');
+        formNote.hidden = false;
+        form.reset();
+      })
+      .catch(() => {
+        formNote.textContent = 'Die Anfrage konnte nicht automatisch gesendet werden. Bitte kontaktieren Sie uns direkt per WhatsApp oder E-Mail.';
+        formNote.classList.add('error');
+        formNote.hidden = false;
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitBtnDefaultText;
+      });
+  });
+}
 
-// Prevent picking a past date for the preferred appointment
+// --- Vergangene Termine im Datumsfeld sperren ---
 const wunschtermin = document.getElementById('wunschtermin');
 if (wunschtermin) {
   wunschtermin.min = new Date().toISOString().split('T')[0];
 }
 
-// Hide the floating mobile WhatsApp button whenever the hero or the contact
-// section is in view, since both already show their own WhatsApp button
-const mobileCallButton = document.querySelector('.mobile-call-button');
+// --- Mobile-Bar ausblenden, wenn Hero oder Kontakt sichtbar sind
+//     (dort gibt es die Buttons ohnehin schon) ---
+const mobileBar = document.getElementById('mobile-bar');
 const heroSection = document.querySelector('.hero');
 const kontaktSection = document.getElementById('kontakt');
 
-if (mobileCallButton && heroSection && kontaktSection && 'IntersectionObserver' in window) {
+if (mobileBar && heroSection && kontaktSection && 'IntersectionObserver' in window) {
   const visibility = { hero: false, kontakt: false };
+  const update = () => mobileBar.classList.toggle('is-hidden', visibility.hero || visibility.kontakt);
 
-  const updateMobileCallButton = () => {
-    mobileCallButton.classList.toggle('is-hidden', visibility.hero || visibility.kontakt);
-  };
+  new IntersectionObserver((entries) => {
+    visibility.hero = entries[0].isIntersecting;
+    update();
+  }, { threshold: 0.25 }).observe(heroSection);
 
-  const heroObserver = new IntersectionObserver(
-    (entries) => {
-      visibility.hero = entries[0].isIntersecting;
-      updateMobileCallButton();
-    },
-    { threshold: 0.2 }
-  );
-  heroObserver.observe(heroSection);
-
-  const kontaktObserver = new IntersectionObserver(
-    (entries) => {
-      visibility.kontakt = entries[0].isIntersecting;
-      updateMobileCallButton();
-    },
-    { threshold: 0.2 }
-  );
-  kontaktObserver.observe(kontaktSection);
+  new IntersectionObserver((entries) => {
+    visibility.kontakt = entries[0].isIntersecting;
+    update();
+  }, { threshold: 0.2 }).observe(kontaktSection);
 }
 
-// Auto-scrolling testimonial marquee: duplicate the cards once so the
-// looping animation can run seamlessly, and let people pause it by
-// pressing and holding (mouse hover also pauses it, handled purely in CSS)
+// --- Testimonial-Band: Karten einmal klonen für nahtlose Schleife,
+//     Pause beim Drücken/Halten (Hover-Pause läuft rein über CSS) ---
 const testimonialTrack = document.getElementById('testimonial-track');
-if (testimonialTrack) {
+if (testimonialTrack && !prefersReducedMotion) {
   const originalCards = Array.from(testimonialTrack.children);
   originalCards.forEach((card) => {
     const clone = card.cloneNode(true);
@@ -131,18 +177,12 @@ if (testimonialTrack) {
     testimonialTrack.appendChild(clone);
   });
 
-  // Measure the exact pixel distance to the first duplicated card so the
-  // loop lines up perfectly (a plain -50% can be off if the track's width
-  // isn't computed the same way on every browser), and scale the duration
-  // to that distance so the scroll speed looks the same on every screen size.
   const firstClone = testimonialTrack.children[originalCards.length];
   const setMarqueeDistance = () => {
     if (!firstClone) return;
-    const trackLeft = testimonialTrack.getBoundingClientRect().left;
-    const cloneLeft = firstClone.getBoundingClientRect().left;
-    const distance = cloneLeft - trackLeft;
+    const distance = firstClone.getBoundingClientRect().left - testimonialTrack.getBoundingClientRect().left;
     if (distance > 0) {
-      const pixelsPerSecond = 40;
+      const pixelsPerSecond = 42;
       testimonialTrack.style.setProperty('--marquee-distance', `${distance}px`);
       testimonialTrack.style.animationDuration = `${distance / pixelsPerSecond}s`;
     }
@@ -150,13 +190,10 @@ if (testimonialTrack) {
   setMarqueeDistance();
   window.addEventListener('resize', setMarqueeDistance);
 
-  // Pause on press (finger or mouse down) and resume as soon as it's
-  // released, so people can hold a card to read it and let go to continue
-  const pauseMarquee = () => testimonialTrack.classList.add('is-paused');
-  const resumeMarquee = () => testimonialTrack.classList.remove('is-paused');
-
-  testimonialTrack.addEventListener('pointerdown', pauseMarquee);
-  testimonialTrack.addEventListener('pointerup', resumeMarquee);
-  testimonialTrack.addEventListener('pointercancel', resumeMarquee);
-  testimonialTrack.addEventListener('pointerleave', resumeMarquee);
+  const pause = () => testimonialTrack.classList.add('is-paused');
+  const resume = () => testimonialTrack.classList.remove('is-paused');
+  testimonialTrack.addEventListener('pointerdown', pause);
+  testimonialTrack.addEventListener('pointerup', resume);
+  testimonialTrack.addEventListener('pointercancel', resume);
+  testimonialTrack.addEventListener('pointerleave', resume);
 }
